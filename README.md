@@ -88,6 +88,34 @@ The project uses an H2 in-memory database.
 
 
 
+&#x20;Screenshots
+
+
+
+&#x20;Admin Page
+
+!\[Admin Page](screenshots/admin.jpeg)
+
+
+
+Live Page
+
+!\[Live Page](screenshots/live.jpeg)
+
+
+
+Security Page
+
+!\[Security Page](screenshots/scurity.jpeg)
+
+
+
+&#x20;Voting Page
+
+!\[Voting Page](screenshots/vote.jpeg)
+
+
+
 &#x20;Author
 
 Srilakshmi
