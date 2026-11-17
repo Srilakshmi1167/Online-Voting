@@ -1,0 +1,138 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Vote - UniVote</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+}
+
+/* Main container */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+/* Card */
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    width: 500px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+h2 {
+    text-align: center;
+}
+
+/* Questions */
+.question {
+    margin-bottom: 15px;
+}
+
+.question p {
+    font-weight: bold;
+}
+
+/* Candidate */
+.candidate {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.candidate:hover {
+    background: #f2f2f2;
+}
+
+/* Button */
+button {
+    width: 100%;
+    padding: 12px;
+    background: #4facfe;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #007bff;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+<div class="card">
+
+<h2>Student President Election</h2>
+
+<form>
+
+    <!-- QUESTIONS -->
+    <div class="question">
+        <p>1. Which quality do you prefer?</p>
+        <label><input type="radio" name="q1"> Leadership</label><br>
+        <label><input type="radio" name="q1"> Communication</label><br>
+        <label><input type="radio" name="q1"> Responsibility</label>
+    </div>
+
+    <div class="question">
+        <p>2. Main focus of president?</p>
+        <label><input type="radio" name="q2"> Student welfare</label><br>
+        <label><input type="radio" name="q2"> Events</label><br>
+        <label><input type="radio" name="q2"> Academics</label>
+    </div>
+
+    <div class="question">
+        <p>3. Prefer experienced candidate?</p>
+        <label><input type="radio" name="q3"> Yes</label><br>
+        <label><input type="radio" name="q3"> No</label>
+    </div>
+
+    <hr>
+
+    <!-- CANDIDATES -->
+    <h3>Select Your Candidate</h3>
+
+    <label class="candidate">
+        <input type="radio" name="candidate" value="1">
+        Candidate A (CSE)
+    </label>
+
+    <label class="candidate">
+        <input type="radio" name="candidate" value="2">
+        Candidate B (ECE)
+    </label>
+
+    <label class="candidate">
+        <input type="radio" name="candidate" value="3">
+        Candidate C (MECH)
+    </label>
+
+    <button type="submit">Submit Vote</button>
+
+</form>
+
+</div>
+</div>
+
+</body>
+</html>
+```

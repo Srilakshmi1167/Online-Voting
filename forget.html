@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Forgot Password</title>
+<style>
+body {
+    display:flex; justify-content:center; align-items:center;
+    height:100vh; background:#ffe4ec; font-family:Arial;
+}
+.card {
+    background:white; padding:25px; border-radius:10px;
+    width:350px;
+}
+h2 { text-align:center; color:#c2185b; }
+input {
+    width:100%; padding:10px; margin:10px 0;
+}
+button {
+    width:100%; padding:10px;
+    background:#e91e63; color:white; border:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+<h2>Forgot Password</h2>
+
+<form action="/forgot" method="post">
+    <input type="text" name="phone" placeholder="Enter Phone Number" required>
+    <button type="submit">Get Password</button>
+</form>
+
+</div>
+
+</body>
+</html>

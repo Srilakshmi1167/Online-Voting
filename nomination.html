@@ -1,0 +1,217 @@
+```html id="all1code"
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Student Election System</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: linear-gradient(to right, #e0c3fc, #f9f9ff);
+}
+
+/* Sections */
+.section {
+    display: none;
+    padding: 20px;
+}
+
+/* Active */
+.active {
+    display: block;
+}
+
+/* Card */
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: auto;
+    box-shadow: 0 5px 15px rgba(128,0,128,0.2);
+}
+
+h2 {
+    text-align: center;
+    color: #6a0dad;
+}
+
+/* Inputs */
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin: 6px 0;
+}
+
+/* Button */
+button {
+    width: 100%;
+    padding: 10px;
+    background: #9b59b6;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #8e44ad;
+}
+
+/* Candidate list */
+.candidate {
+    background: #f3e6ff;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 5px;
+}
+</style>
+
+<script>
+let candidateName = "";
+
+/* Show sections */
+function showSection(id) {
+    document.querySelectorAll(".section").forEach(sec => sec.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+}
+
+/* Save form and go to quiz */
+function goToQuiz() {
+    candidateName = document.getElementById("nominationName").value;
+    showSection("quiz");
+}
+
+/* Check quiz */
+function checkResult() {
+    let correct = 0;
+
+    if(document.querySelector('input[name="q1"]:checked')?.value === "b") correct++;
+    if(document.querySelector('input[name="q2"]:checked')?.value === "b") correct++;
+    if(document.querySelector('input[name="q3"]:checked')?.value === "b") correct++;
+    if(document.querySelector('input[name="q4"]:checked')?.value === "c") correct++;
+    if(document.querySelector('input[name="q5"]:checked')?.value === "c") correct++;
+    if(document.querySelector('input[name="q6"]:checked')?.value === "c") correct++;
+
+    let result = document.getElementById("result");
+
+    if(correct >= 5){
+        result.innerHTML = "🎉 Selected for Nomination";
+        result.style.color = "green";
+
+        let list = JSON.parse(localStorage.getItem("nominations")) || [];
+        list.push(candidateName);
+        localStorage.setItem("nominations", JSON.stringify(list));
+
+        setTimeout(() => showDashboard(), 1500);
+
+    } else {
+        result.innerHTML = "❌ Not Selected";
+        result.style.color = "red";
+    }
+}
+
+/* Show dashboard */
+function showDashboard() {
+    showSection("dashboard");
+
+    let list = JSON.parse(localStorage.getItem("nominations")) || [];
+    let container = document.getElementById("list");
+    container.innerHTML = "";
+
+    if(list.length === 0){
+        container.innerHTML = "No candidates yet";
+    } else {
+        list.forEach(name => {
+            let div = document.createElement("div");
+            div.className = "candidate";
+            div.innerText = name;
+            container.appendChild(div);
+        });
+    }
+}
+</script>
+
+</head>
+
+<body>
+
+<!-- NOMINATION FORM -->
+<div id="form" class="section active">
+<div class="card">
+<h2>Nomination Form</h2>
+
+<input type="text" placeholder="First Name" pattern="[A-Z][a-zA-Z]*" required>
+<input type="text" placeholder="Last Name" pattern="[A-Z][a-zA-Z]*" required>
+
+<input type="email" placeholder="Email (@kluniversity.in)" pattern=".+@kluniversity\.in" required>
+
+<input type="password" placeholder="Password (number + special char)"
+pattern="(?=.*[0-9])(?=.*[!@#$%^&*]).{6,}" required>
+
+<input type="tel" placeholder="Phone (10 digits)" pattern="[0-9]{10}" required>
+
+<select required>
+<option value="">Department</option>
+<option>CSE</option>
+<option>ECE</option>
+<option>MECH</option>
+</select>
+
+<select required>
+<option value="">Year</option>
+<option>1st</option>
+<option>2nd</option>
+<option>3rd</option>
+<option>4th</option>
+</select>
+
+<input type="text" id="nominationName" placeholder="Nomination Name" required>
+
+<button onclick="goToQuiz()">Next</button>
+
+</div>
+</div>
+
+<!-- QUIZ -->
+<div id="quiz" class="section">
+<div class="card">
+<h2>Eligibility Test</h2>
+
+<p>1. Important quality?</p>
+<input type="radio" name="q1" value="b"> Leadership<br>
+
+<p>2. Student problem?</p>
+<input type="radio" name="q2" value="b"> Solve<br>
+
+<p>3. Communication?</p>
+<input type="radio" name="q3" value="b"> Polite<br>
+
+<p>4. Priority?</p>
+<input type="radio" name="q4" value="c"> Student welfare<br>
+
+<p>5. Responsibility?</p>
+<input type="radio" name="q5" value="c"> Serious<br>
+
+<p>6. Decision?</p>
+<input type="radio" name="q6" value="c"> Fair<br>
+
+<button onclick="checkResult()">Submit</button>
+
+<div id="result"></div>
+
+</div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard" class="section">
+<div class="card">
+<h2>Nomination Dashboard</h2>
+<div id="list"></div>
+</div>
+</div>
+
+</body>
+</html>
+```

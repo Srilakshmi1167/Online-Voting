@@ -1,0 +1,191 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>UniVote System</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 40px;
+    background: black;
+    color: white;
+}
+
+.navbar a {
+    color: white;
+    margin-left: 15px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Common container */
+.container {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+/* Active section */
+.active {
+    display: flex;
+}
+
+/* Card */
+.box {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    width: 320px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+h2 {
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 12px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #4facfe;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #007bff;
+}
+
+.forgot {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.forgot a {
+    color: red;
+    cursor: pointer;
+}
+</style>
+
+<script>
+function showPage(page) {
+    document.querySelectorAll(".container").forEach(div => {
+        div.classList.remove("active");
+    });
+    document.getElementById(page).classList.add("active");
+}
+</script>
+
+</head>
+
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <h3>UniVote</h3>
+    <div>
+        <a onclick="showPage('home')">Home</a>
+        <a onclick="showPage('login')">Login</a>
+        <a onclick="showPage('signup')">Sign Up</a>
+    </div>
+</div>
+
+<!-- HOME -->
+<div id="home" class="container active">
+    <div class="box">
+        <h2>University Voting</h2>
+        <p style="text-align:center;">Secure Student President Election</p>
+        <button onclick="showPage('login')">Vote Now</button>
+    </div>
+</div>
+
+<!-- LOGIN -->
+<div id="login" class="container">
+    <div class="box">
+        <h2>Login</h2>
+
+        <div class="input-group">
+            Email
+            <input type="email">
+        </div>
+
+        <div class="input-group">
+            Password
+            <input type="password">
+        </div>
+
+        <button>Submit</button>
+
+        <div class="forgot">
+            <a onclick="showPage('forgot')">Forgot Password?</a>
+        </div>
+    </div>
+</div>
+
+<!-- SIGNUP -->
+<div id="signup" class="container">
+    <div class="box">
+        <h2>Signup</h2>
+
+        <div class="input-group">First Name
+            <input type="text">
+        </div>
+
+        <div class="input-group">Last Name
+            <input type="text">
+        </div>
+
+        <div class="input-group">Email
+            <input type="email">
+        </div>
+
+        <div class="input-group">Password
+            <input type="password">
+        </div>
+
+        <div class="input-group">Phone Number
+            <input type="tel">
+        </div>
+
+        <button>Continue</button>
+    </div>
+</div>
+
+<!-- FORGOT PASSWORD -->
+<div id="forgot" class="container">
+    <div class="box">
+        <h2>Forgot Password</h2>
+
+        <div class="input-group">
+            Phone Number
+            <input type="tel">
+        </div>
+
+        <button>Continue</button>
+    </div>
+</div>
+
+</body>
+</html>
+```

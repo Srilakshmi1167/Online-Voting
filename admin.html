@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin - Election</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: linear-gradient(to right, #e0c3fc, #f9f9ff);
+    text-align: center;
+}
+
+.container {
+    background: white;
+    width: 350px;
+    margin: 100px auto;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(128,0,128,0.2);
+}
+
+h2 {
+    color: #6a0dad;
+}
+
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+button {
+    width: 95%;
+    padding: 10px;
+    margin: 8px 0;
+    background: #9b59b6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: #8e44ad;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+<h2>Admin Panel</h2>
+
+<!-- CREATE -->
+<form action="/createElection" method="post">
+    <input type="text" name="title" placeholder="Election Title" required>
+    <button type="submit">Create Election</button>
+</form>
+
+<!-- START -->
+<form action="/startElection" method="post">
+    <input type="number" name="id" placeholder="Election ID" required>
+    <button type="submit">Start Election</button>
+</form>
+
+<!-- STOP -->
+<form action="/stopElection" method="post">
+    <input type="number" name="id" placeholder="Election ID" required>
+    <button type="submit">Stop Election</button>
+</form>
+
+</div>
+
+</body>
+</html>
+

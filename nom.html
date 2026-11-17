@@ -1,0 +1,155 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Nomination Form</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #e0c3fc, #f9f9ff); /* light purple + white */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Form box */
+.form-box {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    width: 360px;
+    box-shadow: 0 5px 15px rgba(128, 0, 128, 0.2);
+}
+
+h2 {
+    text-align: center;
+    color: #6a0dad;
+    margin-bottom: 20px;
+}
+
+/* Input fields */
+.input-group {
+    margin-bottom: 14px;
+}
+
+label {
+    font-size: 14px;
+    color: #6a0dad;
+}
+
+input, select {
+    width: 100%;
+    padding: 9px;
+    margin-top: 5px;
+    border: 1px solid #d3bdf0;
+    border-radius: 6px;
+    outline: none;
+}
+
+/* Focus effect */
+input:focus, select:focus {
+    border-color: #9b59b6;
+}
+
+/* Button */
+button {
+    width: 100%;
+    padding: 11px;
+    background: #9b59b6;
+    border: none;
+    color: white;
+    font-size: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #8e44ad;
+}
+
+small {
+    color: gray;
+    font-size: 12px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="form-box">
+<h2>Nomination Form</h2>
+
+<form action="eligibility.html">
+
+    <div class="input-group">
+        <label>First Name</label>
+        <input type="text" pattern="[A-Z][a-zA-Z]*" required>
+    </div>
+
+    <div class="input-group">
+        <label>Last Name</label>
+        <input type="text" pattern="[A-Z][a-zA-Z]*" required>
+    </div>
+
+    <div class="input-group">
+        <label>Email</label>
+        <input type="email"
+               pattern=".+@kluniversity\.in"
+               placeholder="example@kluniversity.in"
+               required>
+        <small>Use university email only</small>
+    </div>
+
+    <div class="input-group">
+        <label>Password</label>
+        <input type="password"
+               pattern="(?=.*[0-9])(?=.*[!@#$%^&*]).{6,}"
+               required>
+    </div>
+
+    <div class="input-group">
+        <label>Phone Number</label>
+        <input type="tel" pattern="[0-9]{10}" required>
+    </div>
+
+    <div class="input-group">
+        <label>Department</label>
+        <select required>
+            <option value="">Select</option>
+            <option>CSE</option>
+            <option>ECE</option>
+            <option>MECH</option>
+            <option>CIVIL</option>
+        </select>
+    </div>
+
+    <div class="input-group">
+        <label>Year</label>
+        <select required>
+            <option value="">Select</option>
+            <option>1st Year</option>
+            <option>2nd Year</option>
+            <option>3rd Year</option>
+            <option>4th Year</option>
+        </select>
+    </div>
+
+    <div class="input-group">
+        <label>Nomination Name</label>
+        <input type="text" required>
+    </div>
+
+    <button type="submit">Next</button>
+
+</form>
+
+</div>
+
+</body>
+</html>
+```
